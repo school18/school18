@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>School TIME</title>
+	<link rel="stylesheet" href="style.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+  <script src="lesson.js"></script>
+</head>
+<body>
+	<div class="main">
+	<div class="header">
+		ШКОЛЬНЫЕ ЧАСЫ
+		</div>
+
+		<div class="boxtime datebox">
+			<span id="nameday"></span>
+			<span id="day"></span>
+			<span id="namemonth"></span>
+			<span id="fullyear"></span>
+
+		</div>
+		
+		<div class="boxtime glav">
+			<span id="time"></span>
+		</div>
+		<div class="left">
+			<div class="boxtime">
+				<span id="numberurok"></span>
+				<br>
+				<span id="numbersmena"></span>
+
+			</div>
+			<div class="boxtime">
+				<div class="NameLess">От начала прошло:</div>
+				<span id="timeot">
+			</div>
+			<div class="boxtime">
+				<div class="NameLess">До окончания осталось:</div>
+				<span id="timedo">
+			</div>
+			<div class="boxtime">
+				<div class="NameLess">Дней до каникул:</div>
+				<span id="dateege">
+			</div>
+		</div>
+		<div class="right">
+			<div class="boxtime">
+				<div class="leftNameLess"><span id="1form">11А:</div>
+				<span id="11a">
+			</div>
+			<div class="boxtime">
+				<div class="leftNameLess"><span id="2form">10А:</div>
+				<span id="10a">
+			</div>
+			<div class="boxtime">
+				<div class="leftNameLess"><span id="3form">10Б:</div>
+				<span id="10b">
+			</div>
+			<div class="boxtime">
+				<div class="leftNameLess"><span id="4form">9А:</div>
+				<span id="9a">
+			</div>
+			<div class="boxtime">
+				<div class="leftNameLess"><span id="5form">9Б:</div>
+				<span id="9b">
+			</div>
+			<div class="boxtime">
+				<div class="leftNameLess"><span id="6form"></div>
+				<span id="6a">
+			</div>
+      <div class="boxtime">
+        <div class="leftNameLess"><span id="7form"></div>
+        <span id="6b">
+      </div>
+
+			
+			</div>
+
+
+
+
+
+
+	
+		
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+     
+      obj_namemonth=document.getElementById("namemonth"); 
+      obj_day=document.getElementById("day"); 
+      obj_nameday=document.getElementById("nameday"); 
+      obj_time=document.getElementById("time"); 
+      obj_numberurok=document.getElementById("numberurok");
+      obj_numbersmena=document.getElementById("numbersmena"); 
+      obj_fullyear=document.getElementById("fullyear"); 
+	  obj_timeot=document.getElementById("timeot"); 
+	  obj_timedo=document.getElementById("timedo"); 
+	  obj_dateege=document.getElementById("dateege");
+	  obj_11a=document.getElementById("11a");
+	  obj_10a=document.getElementById("10a");
+	  obj_10b=document.getElementById("10b");
+	  obj_9a=document.getElementById("9a");
+	  obj_9b=document.getElementById("9b");
+	  obj_6a=document.getElementById("6a");
+    obj_6b=document.getElementById("6b");
+	  obj_1form=document.getElementById("1form");
+	  obj_2form=document.getElementById("2form");
+	  obj_3form=document.getElementById("3form");
+	  obj_4form=document.getElementById("4form");
+	  obj_5form=document.getElementById("5form");
+	  obj_6form=document.getElementById("6form");
+    obj_7form=document.getElementById("7form");
+
+
+
+
+
+
+	  lesson= new Object();
+	   
+  var Fsmena={ }
+
+	   
+  
+  name_month=new Array ("января","февраля","марта", "апреля","мая", "июня","июля","августа","сентября","октября","ноября","декабря");
+  name_day=new Array ("воскресенье","понедельник", "вторник","среда","четверг", "пятница","суббота");
+   
+
+
+
+
+
+  function wr_hours()
+  {
+  time=new Date();
+      time_sec=time.getSeconds();
+      time_min=time.getMinutes();
+      time_hours=time.getHours();
+      time_wr=((time_hours<10)?"0":"")+time_hours;
+      time_wr+=":";
+      time_wr+=((time_min<10)?"0":"")+time_min;
+      time_wr+=":";
+      time_wr+=((time_sec<10)?"0":"")+time_sec;
+      flag_zan = "0"; // флаг отсутствия занятий: 1-занятий нет (ночь или воскресенье), 0-занятия идут
+  
+  if (name_day[time.getDay()]=="суббота")// програмирование расписания занятий в будние дни
+      {
+      u111="08:00:00";u112="08:45:00";
+      u121="08:55:00";u122="09:40:00";
+      u131="10:00:00";u132="10:45:00";
+      u141="11:05:00";u142="11:50:00";
+      u151="12:00:00";u152="12:45:00";
+      u161="12:55:00";u162="13:40:00";
+      //u171="13:40:00";u172="14:00:00";
+	  u211="14:00:00";u212="14:45:00";
+      u221="14:55:00";u222="15:40:00";
+      u231="16:00:00";u232="16:45:00";
+      u241="16:55:00";u242="17:40:00";
+      u251="17:50:00";u252="18:35:00";
+      u261="18:45:00";u262="19:30:00";
+      }
+   else  // програмирование расписания занятий в субботу
+      {
+      u111="08:00:00";u112="08:45:00";
+      u121="08:55:00";u122="09:40:00";
+      u131="10:00:00";u132="10:45:00";
+      u141="11:05:00";u142="11:50:00";
+      u151="12:00:00";u152="12:45:00";
+      u161="12:55:00";u162="13:40:00";
+      //u171="13:40:00";u172="14:00:00";
+	  u211="14:00:00";u212="14:45:00";
+      u221="14:55:00";u222="15:40:00";
+      u231="16:00:00";u232="16:45:00";
+      u241="16:55:00";u242="17:40:00";
+      u251="17:50:00";u252="18:35:00";
+      u261="18:45:00";u262="19:30:00";
+      } 
+    if (name_day[time.getDay()]=="воскресенье") {lesson= lessonNo;smenaN=0;text= "в настоящий момент";smena="занятий нет";time_start="24:00:00"; time_fin=u111; flag_zan = "1";}
+	else if (time_wr>u111 && time_wr<u112){lesson= lesson1;smenaN=1;text= "идет 1-й урок";smena="1-й смены";time_start=u111;time_fin=u112;}
+    else if (time_wr>u112 && time_wr<u121){lesson= lesson2;smenaN=1;text= "идет перемена между 1-м и 2-м уроком";smena="1-й смены";time_start=u112;time_fin=u121;}
+    else if (time_wr>u121 && time_wr<u122){lesson= lesson2;smenaN=1;text= "идет 2-й урок";smena="1-й смены";time_start=u121;time_fin=u122;}
+    else if (time_wr>u122 && time_wr<u131){lesson= lesson3;smenaN=1;text= "идет перемена между 2-м и 3-м уроком";smena="1-й смены";time_start=u122;time_fin=u131;}
+    else if (time_wr>u131 && time_wr<u132){lesson= lesson3;smenaN=1;text= "идет 3-й урок";smena="1-й смены";time_start=u131;time_fin=u132;}
+    else if (time_wr>u132 && time_wr<u141){lesson= lesson4;smenaN=1;text= "идет перемена между 3-м и 4-м уроком";smena="1-й смены";time_start=u132;time_fin=u141;}
+    else if (time_wr>u141 && time_wr<u142){lesson= lesson4;smenaN=1;text= "идет 4-й урок";smena="1-й смены";time_start=u141;time_fin=u142;}
+    else if (time_wr>u142 && time_wr<u151){lesson= lesson5;smenaN=1;text= "идет перемена между 4-м и 5-м уроком";smena="1-й смены";time_start=u142;time_fin=u151;}
+    else if (time_wr>u151 && time_wr<u152){lesson= lesson5;smenaN=1;text= "идет 5-й урок";smena="1-й смены";time_start=u151;time_fin=u152;}
+    else if (time_wr>u152 && time_wr<u161){lesson= lesson6;smenaN=1;text= "идет перемена между 5-м и 6-м уроком";smena="1-й смены";time_start=u152;time_fin=u161;}
+    else if (time_wr>u161 && time_wr<u162){lesson= lesson6;smenaN=1;text= "идет 6-й урок";smena="1-й смены";time_start=u161;time_fin=u162;}  
+	//else if (time_wr>u162 && time_wr<u171){text= "идет перемена между 6-м и 7-м уроком";smena="1-й смены";time_start=u162;time_fin=u171;}
+	//else if (time_wr>u171 && time_wr<u172){text= "идет 7-й урок";smena="1-й смены";time_start=u171;time_fin=u172;}
+    else if (time_wr>u162 && time_wr<u211){lesson= lessonNo;smenaN=2;text= "уроков нет";smena="пересменка";time_start=u162;time_fin=u211;}
+    else if (time_wr>u211 && time_wr<u212){lesson= lesson1;smenaN=2;text= "идет 1-й урок";smena="2-й смены";time_start=u211;time_fin=u212;}
+    else if (time_wr>u212 && time_wr<u221){lesson= lesson2;smenaN=2;text= "идет перемена между 1-м и 2-м уроком";smena="2-й смены";time_start=u212;time_fin=u221;}
+    else if (time_wr>u221 && time_wr<u222){lesson= lesson2;smenaN=2;text= "идет 2-й урок";smena="2-й смены";time_start=u221;time_fin=u222;}
+    else if (time_wr>u222 && time_wr<u231){lesson= lesson3;smenaN=2;text= "идет перемена между 2-м и 3-м уроком";smena="2-й смены";time_start=u222;time_fin=u231;}
+    else if (time_wr>u231 && time_wr<u232){lesson= lesson3;smenaN=2;text= "идет 3-й урок";smena="2-й смены";time_start=u231;time_fin=u232;}
+    else if (time_wr>u232 && time_wr<u241){lesson= lesson4;smenaN=2;text= "идет перемена между 3-м и 4-м уроком";smena="2-й смены";time_start=u232;time_fin=u241;}
+    else if (time_wr>u241 && time_wr<u242){lesson= lesson4;smenaN=2;text= "идет 4-й урок";smena="2-й смены";time_start=u241;time_fin=u242;}
+    else if (time_wr>u242 && time_wr<u251){lesson= lesson5;smenaN=2;text= "идет перемена между 4-м и 5-м уроком";smena="2-й смены";time_start=u242;time_fin=u251;}
+    else if (time_wr>u251 && time_wr<u252){lesson= lesson5;smenaN=2;text= "идет 5-й урок";smena="2-й смены";time_start=u251;time_fin=u252;}
+    else if (time_wr>u252 && time_wr<u261){lesson= lesson6;smenaN=2;text= "идет перемена между 5-м и 6-м уроком";smena="2-й смены";time_start=u252;time_fin=u261;}
+    else if (time_wr>u261 && time_wr<u262){lesson= lesson6;smenaN=2;text= "идет 6-й урок";smena="2-й смены";time_start=u261;time_fin=u262;}
+    else if (time_wr>u262){lesson= lessonNo;smenaN=0;text= "в настоящий момент";smena="занятий нет";time_start=u262;time_fin="24:00:00"; flag_zan = "1";}
+    else if (time_wr<u111){lesson= lessonNo;smenaN=0;text= "в настоящий момент";smena="занятий нет";time_start="00:00:00";time_fin=u111; flag_zan = "1";} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if (smenaN==1){
+    	obj_1form.innerHTML='11A:';
+    	obj_2form.innerHTML='10A:';
+    	obj_3form.innerHTML='10Б:';
+    	obj_4form.innerHTML='9A:';
+    	obj_5form.innerHTML='9Б:';
+    	obj_6form.innerHTML='5А:';
+      obj_7form.innerHTML='5Б:';
+
+
+    }else if (smenaN==2) {
+    	obj_1form.innerHTML='8A:';
+    	obj_2form.innerHTML='8Б:';
+    	obj_3form.innerHTML='7А:';
+    	obj_4form.innerHTML='7Б:';
+    	obj_5form.innerHTML='6А:';
+    	obj_6form.innerHTML='6Б:';
+    }else if (smenaN==0) {
+      obj_1form.innerHTML='11A:';
+      obj_2form.innerHTML='10A:';
+      obj_3form.innerHTML='10Б:';
+      obj_4form.innerHTML='9A:';
+      obj_5form.innerHTML='9Б:';
+      obj_6form.innerHTML='5А:';
+      obj_7form.innerHTML='5Б:';
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+    	// вычисление времени от начала урока или перемены
+		time_start_hh = time_start.substring(0,2);time_start_mm = time_start.substring(3,5);
+		start = new Date(time.getFullYear(),time.getMonth(),time.getDay(),time_start_hh,time_start_mm,0);
+		real = new Date(time.getFullYear(),time.getMonth(),time.getDay(),time.getHours(),time.getMinutes(),time.getSeconds());
+		date = (real.getTime() - start.getTime()) / (1000) ; time_real = Math.round(date);
+		min = Math.round((real.getTime()-start.getTime())/60000);
+		if (flag_zan == "1"){sec = "0"; min = "00";}
+		else if (time.getSeconds()<30) {sec = (real.getTime()-start.getTime())/1000-min*60;}
+		else {sec = (real.getTime()-start.getTime())/1000-min*60+60;min=min-1;}
+		sec=((sec<10)?"0":"")+sec; timeot = min + ":" + sec;
+		
+		// вычисление времени до окончания урока или перемены
+		time_fin_hh = time_fin.substring(0,2);time_fin_mm = time_fin.substring(3,5);
+		fin = new Date(time.getFullYear(),time.getMonth(),time.getDay(),time_fin_hh,time_fin_mm,0); //осталось
+		real = new Date(time.getFullYear(),time.getMonth(),time.getDay(),time.getHours(),time.getMinutes(),time.getSeconds());
+		date = (-real.getTime() + fin.getTime()) / (1000) ; time_real = Math.round(date);
+		min = Math.round((-real.getTime()+fin.getTime())/60000);
+		if (flag_zan == "1"){sec = "0"; min = "00";}
+		else if (time.getSeconds()<30) {sec = (-real.getTime()+fin.getTime())/1000-min*60+60;min=min-1;}
+		else {sec = (-real.getTime()+fin.getTime())/1000-min*60;}
+		sec=((sec<10)?"0":"")+sec; timedo = min +":"+ sec;
+		
+		// вычисление количесва дней до какого-либо события ege 
+    var holiday={
+      holiday1:new Date (2015,9,24,9,0,0,0),
+      holiday2:new  Date (2015,11,24,9,0,0,0),
+      holiday3:new  Date (2016,02,20,9,0,0,0),
+      holiday4:new  Date (2016,05,01,9,0,0,0)
+    };
+    real = new Date();
+      if (real<holiday.holiday1) {
+       var egeVrem=holiday.holiday1;
+      } else if (real<holiday.holiday2) {
+        egeVrem=holiday.holiday2;
+      } else if (real<holiday.holiday3) {
+        egeVrem=holiday.holiday3;       
+      } else if (real<holiday.holiday4){
+          egeVrem=holiday.holiday4;
+       };
+    //осталось до каникул
+		dateege = (egeVrem-real)/86400000; dateege = Math.round (dateege);
+
+	  obj_namemonth.innerHTML=name_month[time.getMonth()]; 
+      obj_day.innerHTML=time.getDate(); 
+      obj_nameday.innerHTML=name_day[time.getDay()]; 
+      obj_time.innerHTML=time_wr; 
+      obj_numberurok.innerHTML=text; 
+      obj_numbersmena.innerHTML=smena; 
+      obj_fullyear.innerHTML=time.getFullYear()+" года";
+	  obj_timeot.innerHTML=timeot; 	
+	  obj_timedo.innerHTML=timedo;
+	  obj_dateege.innerHTML=dateege;
+
+	  if (name_day[time.getDay()]=="понедельник" && smenaN==1 ){
+	  
+	  obj_11a.innerHTML=lesson.Monday11a;
+	  obj_10a.innerHTML=lesson.Monday10a;
+	  obj_10b.innerHTML=lesson.Monday10b;
+	  obj_9a.innerHTML=lesson.Monday9a;
+	  obj_9b.innerHTML=lesson.Monday9b;
+    obj_6a.innerHTML=lesson.Monday5a;
+    obj_6b.innerHTML=lesson.Monday5b;
+	  } else if  (name_day[time.getDay()]=="вторник" && smenaN==1){
+	  obj_11a.innerHTML=lesson.Tuesday11a;
+	  obj_10a.innerHTML=lesson.Tuesday10a;
+	  obj_10b.innerHTML=lesson.Tuesday10b;
+	  obj_9a.innerHTML=lesson.Tuesday9a;
+	  obj_9b.innerHTML=lesson.Tuesday9b;
+    obj_6a.innerHTML=lesson.Tuesday5a;
+    obj_6b.innerHTML=lesson.Tuesday5b;
+	  }else if  (name_day[time.getDay()]=="среда" && smenaN==1){
+	  obj_11a.innerHTML=lesson.Wednesday11a;
+	  obj_10a.innerHTML=lesson.Wednesday10a;
+	  obj_10b.innerHTML=lesson.Wednesday10b;
+	  obj_9a.innerHTML=lesson.Wednesday9a;
+	  obj_9b.innerHTML=lesson.Wednesday9b;
+    obj_6a.innerHTML=lesson.Wednesday5a;
+    obj_6b.innerHTML=lesson.Wednesday5b;
+	  }else if  (name_day[time.getDay()]=="четверг" && smenaN==1){
+	  obj_11a.innerHTML=lesson.Thursday11a;
+	  obj_10a.innerHTML=lesson.Thursday10a;
+	  obj_10b.innerHTML=lesson.Thursday10b;
+	  obj_9a.innerHTML=lesson.Thursday9a;
+	  obj_9b.innerHTML=lesson.Thursday9b;
+    obj_6a.innerHTML=lesson.Thursday5a;
+    obj_6b.innerHTML=lesson.Thursday5b;
+	  }
+	  else if (name_day[time.getDay()]=="пятница" && smenaN==1){
+	  obj_11a.innerHTML=lesson.Friday11a;
+	  obj_10a.innerHTML=lesson.Friday10a;
+	  obj_10b.innerHTML=lesson.Friday10b;
+	  obj_9a.innerHTML=lesson.Friday9a;
+	  obj_9b.innerHTML=lesson.Friday9b;
+    obj_6a.innerHTML=lesson.Friday5a;
+    obj_6b.innerHTML=lesson.Friday5b;
+	  } else if (name_day[time.getDay()]=="понедельник" && smenaN==2 ){
+	  
+	  obj_11a.innerHTML=lesson.Monday8a;
+	  obj_10a.innerHTML=lesson.Monday8b;
+	  obj_10b.innerHTML=lesson.Monday7a;
+	  obj_9a.innerHTML=lesson.Monday7b;
+	  obj_9b.innerHTML=lesson.Monday6a;
+	  obj_6a.innerHTML=lesson.Monday6b;
+
+	  }else if (name_day[time.getDay()]=="вторник" && smenaN==2 ){
+	  
+	  obj_11a.innerHTML=lesson.Tuesday8a;
+	  obj_10a.innerHTML=lesson.Tuesday8b;
+	  obj_10b.innerHTML=lesson.Tuesday7a;
+	  obj_9a.innerHTML=lesson.Tuesday7b;
+	  obj_9b.innerHTML=lesson.Tuesday6a;
+	  obj_6a.innerHTML=lesson.Tuesday6b;
+
+	  }else if (name_day[time.getDay()]=="среда" && smenaN==2 ){
+	  
+	  obj_11a.innerHTML=lesson.Wednesday8a;
+	  obj_10a.innerHTML=lesson.Wednesday8b;
+	  obj_10b.innerHTML=lesson.Wednesday7a;
+	  obj_9a.innerHTML=lesson.Wednesday7b;
+	  obj_9b.innerHTML=lesson.Wednesday6a;
+	  obj_6a.innerHTML=lesson.Wednesday6b;
+
+	  }else if (name_day[time.getDay()]=="четверг" && smenaN==2 ){
+	  
+	  obj_11a.innerHTML=lesson.Thursday8a;
+	  obj_10a.innerHTML=lesson.Thursday8b;
+	  obj_10b.innerHTML=lesson.Thursday7a;
+	  obj_9a.innerHTML=lesson.Thursday7b;
+	  obj_9b.innerHTML=lesson.Thursday6a;
+	  obj_6a.innerHTML=lesson.Thursday6b;
+
+	  }else if (name_day[time.getDay()]=="пятница" && smenaN==2 ){
+	  
+	  obj_11a.innerHTML=lesson.Friday8a;
+	  obj_10a.innerHTML=lesson.Friday8b;
+	  obj_10b.innerHTML=lesson.Friday7a;
+	  obj_9a.innerHTML=lesson.Friday7b;
+	  obj_9b.innerHTML=lesson.Friday6a;
+	  obj_6a.innerHTML=lesson.Friday6b;
+
+	  }
+	  else{
+	  obj_11a.innerHTML='-----';
+	  obj_10a.innerHTML='-----';
+	  obj_10b.innerHTML='-----';
+	  obj_9a.innerHTML='-----';
+	  obj_9b.innerHTML='-----';
+	  obj_6a.innerHTML='-----';
+     obj_6b.innerHTML='-----';
+
+	  }
+
+
+
+
+
+}
+      wr_hours();
+      setInterval("wr_hours();",1000);  
+	  </script>
+	  </div>
+</body>
+</html>
