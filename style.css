@@ -96,7 +96,7 @@ body{
 	background: #eee;
 	border: 1px solid #e0e0e0;
 	margin: 0;
-	padding: 37px;
+	padding: 4vw;
 	font-size: 8vw;
 	font-weight: 400;
 
@@ -107,8 +107,7 @@ body{
 	margin: 0px;
 	padding: 2vw;
 	font-size: 3vw;
-	font-weight: 400;
-}
+	font-weight: 400;}
 
 .right .boxtime {
 	text-align: center;

@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
+	<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>School TIME</title>
 	<link rel="stylesheet" href="style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
   <script src="lesson.js"></script>
-</head>
+	</head>
 <body>
 	<div class="main">
 	
@@ -49,12 +49,12 @@
 				<span id="11a">
 			</div>
 			<div class="boxtime">
-				<div class="leftNameLess"><span id="2form">10А:</div>
-				<span id="10a">
+				<div class="leftNameLess"><span id="2form">11Б:</div>
+				<span id="11b">
 			</div>
 			<div class="boxtime">
-				<div class="leftNameLess"><span id="3form">10Б:</div>
-				<span id="10b">
+				<div class="leftNameLess"><span id="3form">10А:</div>
+				<span id="10a">
 			</div>
 			<div class="boxtime">
 				<div class="leftNameLess"><span id="4form">9А:</div>
@@ -136,19 +136,19 @@
 	  obj_timedo=document.getElementById("timedo"); 
 	  obj_dateege=document.getElementById("dateege");
 	  obj_11a=document.getElementById("11a");
+	  obj_11b=document.getElementById("11b");
 	  obj_10a=document.getElementById("10a");
-	  obj_10b=document.getElementById("10b");
 	  obj_9a=document.getElementById("9a");
 	  obj_9b=document.getElementById("9b");
 	  obj_6a=document.getElementById("6a");
-    obj_6b=document.getElementById("6b");
+      obj_6b=document.getElementById("6b");
 	  obj_1form=document.getElementById("1form");
 	  obj_2form=document.getElementById("2form");
 	  obj_3form=document.getElementById("3form");
 	  obj_4form=document.getElementById("4form");
 	  obj_5form=document.getElementById("5form");
 	  obj_6form=document.getElementById("6form");
-    obj_7form=document.getElementById("7form");
+      obj_7form=document.getElementById("7form");
 
 
 
@@ -285,16 +285,17 @@
     	obj_4form.innerHTML='9A:';
     	obj_5form.innerHTML='9Б:';
     	obj_6form.innerHTML='5А:';
-      obj_7form.innerHTML='5Б:';
+        obj_7form.innerHTML='5Б:';
 
 
     }else if (smenaN==2) {
     	obj_1form.innerHTML='8A:';
     	obj_2form.innerHTML='8Б:';
-    	obj_3form.innerHTML='7А:';
-    	obj_4form.innerHTML='7Б:';
-    	obj_5form.innerHTML='6А:';
-    	obj_6form.innerHTML='6Б:';
+    	obj_3form.innerHTML='8В:';
+    	obj_4form.innerHTML='7А:';
+    	obj_5form.innerHTML='7Б:';
+    	obj_6form.innerHTML='6А:';
+    	obj_7form.innerHTML='6Б:';
     }else if (smenaN==0) {
       obj_1form.innerHTML='11A:';
       obj_2form.innerHTML='11Б:';
@@ -390,32 +391,32 @@
 	  if (name_day[time.getDay()]=="понедельник" && smenaN==1 ){
 	  
 	  obj_11a.innerHTML=lesson.Monday11a;
+	  obj_11a.innerHTML=lesson.Monday11b;
 	  obj_10a.innerHTML=lesson.Monday10a;
-	  obj_10b.innerHTML=lesson.Monday10b;
 	  obj_9a.innerHTML=lesson.Monday9a;
 	  obj_9b.innerHTML=lesson.Monday9b;
-    obj_6a.innerHTML=lesson.Monday5a;
-    obj_6b.innerHTML=lesson.Monday5b;
+      obj_6a.innerHTML=lesson.Monday5a;
+      obj_6b.innerHTML=lesson.Monday5b;
 	  } else if  (name_day[time.getDay()]=="вторник" && smenaN==1){
 	  obj_11a.innerHTML=lesson.Tuesday11a;
+	  obj_11b.innerHTML=lesson.Tuesday11b;
 	  obj_10a.innerHTML=lesson.Tuesday10a;
-	  obj_10b.innerHTML=lesson.Tuesday10b;
 	  obj_9a.innerHTML=lesson.Tuesday9a;
 	  obj_9b.innerHTML=lesson.Tuesday9b;
     obj_6a.innerHTML=lesson.Tuesday5a;
     obj_6b.innerHTML=lesson.Tuesday5b;
 	  }else if  (name_day[time.getDay()]=="среда" && smenaN==1){
 	  obj_11a.innerHTML=lesson.Wednesday11a;
+	  obj_11b.innerHTML=lesson.Wednesday11b;
 	  obj_10a.innerHTML=lesson.Wednesday10a;
-	  obj_10b.innerHTML=lesson.Wednesday10b;
 	  obj_9a.innerHTML=lesson.Wednesday9a;
 	  obj_9b.innerHTML=lesson.Wednesday9b;
     obj_6a.innerHTML=lesson.Wednesday5a;
     obj_6b.innerHTML=lesson.Wednesday5b;
 	  }else if  (name_day[time.getDay()]=="четверг" && smenaN==1){
 	  obj_11a.innerHTML=lesson.Thursday11a;
+	  obj_11b.innerHTML=lesson.Thursday11b;
 	  obj_10a.innerHTML=lesson.Thursday10a;
-	  obj_10b.innerHTML=lesson.Thursday10b;
 	  obj_9a.innerHTML=lesson.Thursday9a;
 	  obj_9b.innerHTML=lesson.Thursday9b;
     obj_6a.innerHTML=lesson.Thursday5a;
@@ -423,8 +424,8 @@
 	  }
 	  else if (name_day[time.getDay()]=="пятница" && smenaN==1){
 	  obj_11a.innerHTML=lesson.Friday11a;
+	  obj_11b.innerHTML=lesson.Friday11b;
 	  obj_10a.innerHTML=lesson.Friday10a;
-	  obj_10b.innerHTML=lesson.Friday10b;
 	  obj_9a.innerHTML=lesson.Friday9a;
 	  obj_9b.innerHTML=lesson.Friday9b;
     obj_6a.innerHTML=lesson.Friday5a;
@@ -432,53 +433,58 @@
 	  } else if (name_day[time.getDay()]=="понедельник" && smenaN==2 ){
 	  
 	  obj_11a.innerHTML=lesson.Monday8a;
-	  obj_10a.innerHTML=lesson.Monday8b;
-	  obj_10b.innerHTML=lesson.Monday7a;
-	  obj_9a.innerHTML=lesson.Monday7b;
-	  obj_9b.innerHTML=lesson.Monday6a;
-	  obj_6a.innerHTML=lesson.Monday6b;
+	  obj_11b.innerHTML=lesson.Monday8b;
+	  obj_10a.innerHTML=lesson.Monday8v;
+	  obj_9a.innerHTML=lesson.Monday7a;
+	  obj_9b.innerHTML=lesson.Monday7b;
+	  obj_6a.innerHTML=lesson.Monday6a;
+	  obj_6b.innerHTML=lesson.Monday6b;
 
 	  }else if (name_day[time.getDay()]=="вторник" && smenaN==2 ){
 	  
 	  obj_11a.innerHTML=lesson.Tuesday8a;
-	  obj_10a.innerHTML=lesson.Tuesday8b;
-	  obj_10b.innerHTML=lesson.Tuesday7a;
-	  obj_9a.innerHTML=lesson.Tuesday7b;
-	  obj_9b.innerHTML=lesson.Tuesday6a;
-	  obj_6a.innerHTML=lesson.Tuesday6b;
+	  obj_11b.innerHTML=lesson.Tuesday8b;
+	  obj_10a.innerHTML=lesson.Tuesday8v;
+	  obj_9a.innerHTML=lesson.Tuesday7a;
+	  obj_9b.innerHTML=lesson.Tuesday7b;
+	  obj_6a.innerHTML=lesson.Tuesday6a;
+	  obj_6b.innerHTML=lesson.Tuesday6b;
 
 	  }else if (name_day[time.getDay()]=="среда" && smenaN==2 ){
 	  
 	  obj_11a.innerHTML=lesson.Wednesday8a;
-	  obj_10a.innerHTML=lesson.Wednesday8b;
-	  obj_10b.innerHTML=lesson.Wednesday7a;
-	  obj_9a.innerHTML=lesson.Wednesday7b;
-	  obj_9b.innerHTML=lesson.Wednesday6a;
-	  obj_6a.innerHTML=lesson.Wednesday6b;
+	  obj_11b.innerHTML=lesson.Wednesday8b;
+	  obj_10a.innerHTML=lesson.Wednesday8v;
+	  obj_9a.innerHTML=lesson.Wednesday7a;
+	  obj_9b.innerHTML=lesson.Wednesday7b;
+	  obj_6a.innerHTML=lesson.Wednesday6a;
+	  obj_6b.innerHTML=lesson.Wednesday6b;
 
 	  }else if (name_day[time.getDay()]=="четверг" && smenaN==2 ){
 	  
-	  obj_11a.innerHTML=lesson.Thursday8a;
-	  obj_10a.innerHTML=lesson.Thursday8b;
-	  obj_10b.innerHTML=lesson.Thursday7a;
-	  obj_9a.innerHTML=lesson.Thursday7b;
-	  obj_9b.innerHTML=lesson.Thursday6a;
-	  obj_6a.innerHTML=lesson.Thursday6b;
+	   obj_11a.innerHTML=lesson.Thursday8a;
+	  obj_11b.innerHTML=lesson.Thursday8b;
+	  obj_10a.innerHTML=lesson.Thursday8v;
+	  obj_9a.innerHTML=lesson.Thursday7a;
+	  obj_9b.innerHTML=lesson.Thursday7b;
+	  obj_6a.innerHTML=lesson.Thursday6a;
+	  obj_6b.innerHTML=lesson.Thursday6b;
 
 	  }else if (name_day[time.getDay()]=="пятница" && smenaN==2 ){
 	  
-	  obj_11a.innerHTML=lesson.Friday8a;
-	  obj_10a.innerHTML=lesson.Friday8b;
-	  obj_10b.innerHTML=lesson.Friday7a;
-	  obj_9a.innerHTML=lesson.Friday7b;
-	  obj_9b.innerHTML=lesson.Friday6a;
-	  obj_6a.innerHTML=lesson.Friday6b;
+	   obj_11a.innerHTML=lesson.Friday8a;
+	  obj_11b.innerHTML=lesson.Friday8b;
+	  obj_10a.innerHTML=lesson.Friday8v;
+	  obj_9a.innerHTML=lesson.Friday7a;
+	  obj_9b.innerHTML=lesson.Friday7b;
+	  obj_6a.innerHTML=lesson.Friday6a;
+	  obj_6b.innerHTML=lesson.Friday6b;
 
 	  }
 	  else{
 	  obj_11a.innerHTML='-----';
+	  obj_11b.innerHTML='-----';
 	  obj_10a.innerHTML='-----';
-	  obj_10b.innerHTML='-----';
 	  obj_9a.innerHTML='-----';
 	  obj_9b.innerHTML='-----';
 	  obj_6a.innerHTML='-----';
